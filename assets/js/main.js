@@ -244,4 +244,25 @@
     }
   });
 
+  function whatsapp() {
+    // 1. Ton numéro de téléphone au format international (sans le +)
+    const phoneNumber = "237699820231"; // Remplace par ton vrai numéro
+
+    // 2. Récupérer le message écrit par l'utilisateur
+    const message = document.getElementById("message").value;
+
+    // 3. Encoder le message pour qu'il soit lisible dans une URL
+    const encodedMessage = encodeURIComponent(message);
+
+    // 4. Créer le lien final
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    // 5. Rediriger l'utilisateur vers WhatsApp
+    if (message.trim() !== "") {
+        window.open(whatsappUrl, '_blank');
+    } else {
+        alert("Veuillez écrire un message avant d'envoyer.");
+    }
+}
+
 })()
